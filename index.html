@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Angie 💘</title>
+
+<style>
+body{
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  background:black;
+  font-family: 'Arial', sans-serif;
+  text-align:center;
+  color:white;
+}
+
+/* CONTENEDORES */
+.section{
+  position:absolute;
+  width:100%;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  transition:1s;
+}
+
+/* ESTRELLAS */
+.star{
+  position:absolute;
+  width:4px;
+  height:4px;
+  background:gold;
+  border-radius:50%;
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  from{transform:translateY(-10vh);}
+  to{transform:translateY(110vh);}
+}
+
+/* CORAZONES */
+.heart-fall{
+  position:absolute;
+  font-size:20px;
+  animation:fall linear infinite;
+}
+
+/* LIRIOS */
+.lily{
+  position:absolute;
+  font-size:25px;
+  animation:fall linear infinite;
+}
+
+/* CORAZON BOTON */
+.big-heart{
+  font-size:80px;
+  cursor:pointer;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.1);}
+  100%{transform:scale(1);}
+}
+
+/* CUADRO BLANCO */
+.box{
+  background:white;
+  color:black;
+  padding:30px;
+  border-radius:20px;
+  width:80%;
+  max-width:400px;
+}
+
+/* BOTONES */
+button{
+  margin:15px;
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.yes{
+  background:#ff4d6d;
+  color:white;
+}
+
+.obvio{
+  background:#ff85a1;
+  color:white;
+}
+
+/* MENSAJE */
+.final-message{
+  padding:40px;
+  max-width:800px;
+  line-height:1.6;
+}
+
+/* FINAL GRANDE */
+.big-ending{
+  margin-top:40px;
+  font-size:28px;
+  font-weight:bold;
+}
+
+.beat-heart{
+  font-size:60px;
+  animation:beat 1s infinite;
+}
+
+@keyframes beat{
+  0%{transform:scale(1);}
+  25%{transform:scale(1.2);}
+  50%{transform:scale(1);}
+  75%{transform:scale(1.15);}
+  100%{transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PANTALLA 1 -->
+<div id="screen1" class="section">
+  <div class="big-heart" onclick="start()">❤️</div>
+  <p>Haz clic aquí</p>
+</div>
+
+<!-- PANTALLA 2 -->
+<div id="screen2" class="section" style="display:none;">
+  <div class="box">
+    <h2>¿Quieres ser mi San Valentín, Angie Serpa? 💘</h2>
+    <button class="yes" onclick="final()">Sí 💞</button>
+    <button class="obvio" onclick="final()">Obvio que sí 🥰</button>
+  </div>
+</div>
+
+<!-- PANTALLA 3 -->
+<div id="screen3" class="section" style="display:none; overflow:auto;">
+  <div class="final-message">
+
+<p>
+Mi amorrrrrr<br><br>
+
+Hoy nuestro primer dia del amor😻estoy feliz de estar contigo mi vida, cada dia son maravillosos al saber que estoy contigo y saber q nuestros planes cada dia estan mas cerca de cumplirse 
+Q alegria poder tenerte en mi vida mi gatita😙este san valentin quise salirme de lo manual y hacerte algo virtual, que es esta carta mi amor🫶
+Espero de todo corazon este 2026 sea hermoso para los 2, quiero q lleguen exitos, sonrisas, tranquilidad, paz y mas que todo q nunca se termine el amor 🥹💞
+Nunca olvides que eres ese pedacito de mi rompecabeza q hacia falta en mi corazoncito😍
+La chica pelirroja que hizo que este corazon de hielo se derritiera por ti😽
+La que me mostro que es realmente estar enamorado, porque mi amor yo me siento tan enamorado de ti que solo quiero verte besarte y decirte todas esas cosas que siempre te digo cuando te veo😅la frase que siempre te digo que es "ME VUELVES LOCO MUJER"🙈
+</p>
+
+<br>
+
+<button class="yes" onclick="goSecond()">Continuar leyendo ❤️</button>
+
+<p style="font-size:14px; margin-top:10px;">
+Son muchas palabras que tengo que usar 2 paginas 😅
+</p>
+
+  </div>
+</div>
+
+<!-- PANTALLA 4 -->
+<div id="screen4" class="section" style="display:none; overflow:auto;">
+  <div class="final-message">
+    <p>
+Y quiero que sepas algo más<br><br>
+No solo te amo por cómo eres conmigo, sino por la persona que soy cuando estoy a tu lado🥹
+Contigo aprendí que el amor no es complicado cuando es verdadero, que se siente paz, seguridad y ganas de construir🫶
+Prometo cuidarte, respetarte, apoyarte en tus metas y celebrar cada logro tuyo como si fuera mío🤗
+Quiero ser tu lugar seguro, tu abrazo favorito y tu compañero en cada etapa que venga😙
+Si volviera a empezar mil veces, mil veces te elegiría a ti☺️
+Porque tú no eres solo mi enamorada eres mi hogar ❤️
+    </p>
+
+    <div class="big-ending">
+      Feliz San Valentín mi amor 
+      <div class="beat-heart">❤️</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+/* ESTRELLAS */
+for(let i=0;i<100;i++){
+  let star=document.createElement("div");
+  star.className="star";
+  star.style.left=Math.random()*100+"%";
+  star.style.animationDuration=(3+Math.random()*5)+"s";
+  document.body.appendChild(star);
+}
+
+/* CORAZONES */
+function heartTransition(){
+  for(let i=0;i<50;i++){
+    let heart=document.createElement("div");
+    heart.className="heart-fall";
+    heart.innerHTML="🤍";
+    heart.style.left=Math.random()*100+"%";
+    heart.style.animationDuration=(2+Math.random()*3)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),3000);
+  }
+}
+
+/* LIRIOS */
+function lilies(){
+  for(let i=0;i<50;i++){
+    let lily=document.createElement("div");
+    lily.className="lily";
+    lily.innerHTML="🤍🌸❤️";
+    lily.style.left=Math.random()*100+"%";
+    lily.style.animationDuration=(4+Math.random()*5)+"s";
+    document.body.appendChild(lily);
+    setTimeout(()=>lily.remove(),5000);
+  }
+}
+
+/* TRANSICION */
+function romanticTransition(){
+  heartTransition();
+  lilies();
+}
+
+/* FUNCIONES */
+function start(){
+  romanticTransition();
+  document.getElementById("screen1").style.display="none";
+  document.getElementById("screen2").style.display="flex";
+}
+
+function final(){
+  romanticTransition();
+  document.getElementById("screen2").style.display="none";
+  document.getElementById("screen3").style.display="flex";
+}
+
+function goSecond(){
+  romanticTransition();
+  document.getElementById("screen3").style.display="none";
+  document.getElementById("screen4").style.display="flex";
+}
+
+</script>
+
+</body>
+</html>
